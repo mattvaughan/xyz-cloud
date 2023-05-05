@@ -24,6 +24,7 @@ XYZ Cloud Demo
 
 # Guides Used
 - https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
+- https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html
 
 # Notes
 - After terraform apply, configure `kubectl` with 
@@ -38,4 +39,9 @@ docker run -e BUILDKITE_AGENT_TOKEN="<your-key>" buildkite/agent
 - Set tk endpoint
 ```
 tk env set environments/default --server=https://127.0.0.1:6443`
+```
+- Pushing to docker hub
+```
+docker tag local-image:tagname new-repo:tagname
+docker push mvon38/xyz:tagname
 ```

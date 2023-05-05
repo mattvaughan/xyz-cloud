@@ -5,6 +5,7 @@ obj
 # Terraform
 .terraform*
 terraform.tfstate
+terraform.tfstate.backup
 
 # Tanka
 tanka/vendor

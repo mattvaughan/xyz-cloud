@@ -22,7 +22,7 @@
           spec: {
             containers: [
               {
-                image: 'mattvaughan/xyz-api',
+                image: 'mvon38/xyz:initial',
                 name: 'xyz',
                 ports: [{
                     containerPort: 80,
@@ -65,6 +65,7 @@
         name: 'xyz',
       },
       spec: {
+        ingressClassName: 'nginx',
         rules: [
           {
             http: {
