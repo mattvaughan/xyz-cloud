@@ -1,10 +1,16 @@
 # xyz-cloud
 XYZ Cloud Demo
 
-# Prerequisites
+# Prerequisites (will automate some of this)
 - Bash
 - Docker
 - Docker Compose
+- AWS Credentials
+- Terraform
+- Kubectl
+- Tanka
+- AWS Cli
+- AWS Credentials in Environment variables
 
 # Details
 - Pretty print json
@@ -14,3 +20,13 @@ XYZ Cloud Demo
 
 # Potential Improvements
 - Restore .NET deps in separate step
+
+# Guides Used
+- https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
+
+# Notes
+- After terraform apply, configure `kubectl` with 
+```
+aws eks --region $(terraform output -raw region) update-kubeconfig \
+    --name $(terraform output -raw cluster_name)
+```
