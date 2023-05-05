@@ -48,44 +48,12 @@
             name: 'xyz',
             port: 80,
             targetPort: 80,
+            protocol: 'TCP'
         }],
         selector: {
           name: 'xyz',
         },
-        type: 'ClusterIP',
-      },
-    },
-    ingress: {
-      apiVersion: 'networking.k8s.io/v1',
-      kind: 'Ingress',
-      metadata: {
-        labels: {
-          name: 'xyz',
-        },
-        name: 'xyz',
-      },
-      spec: {
-        ingressClassName: 'nginx',
-        rules: [
-          {
-            http: {
-              paths: [
-                {
-                  path: '/',
-                  pathType: 'Prefix',
-                  backend: {
-                    service: {
-                      name: 'xyz',
-                      port: {
-                        number: 80
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          },
-        ],
+        type: 'LoadBalancer',
       },
     },
   },
