@@ -30,3 +30,7 @@ XYZ Cloud Demo
 aws eks --region $(terraform output -raw region) update-kubeconfig \
     --name $(terraform output -raw cluster_name)
 ```
+- To start Buildkite agent locally
+```
+docker run -e BUILDKITE_AGENT_TOKEN="<your-key>" buildkite/agent
+```

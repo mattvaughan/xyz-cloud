@@ -4,3 +4,7 @@ obj
 
 # Terraform
 .terraform*
+terraform.tfstate
+
+# Secrets
+.cluster-info
