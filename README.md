@@ -12,12 +12,14 @@ XYZ Cloud Demo
 - Jsonnet Bundler
 - AWS Cli
 - AWS Credentials in Environment variables
+- Use Nix to wrap all this up?
 
 # Details
 - Pretty print json
 - Swagger
 - Easy `docker-compose` compilation and run
 - Multi-stage docker build to remove build deps
+- Terraform creates pipeline as well
 
 # Potential Improvements
 - Restore .NET deps in separate step
@@ -45,3 +47,5 @@ tk env set environments/default --server=https://127.0.0.1:6443`
 docker tag local-image:tagname new-repo:tagname
 docker push mvon38/xyz:tagname
 ```
+- Remember to parmaterize terraform for things specific to me
+- Set BUILDKITE_API_TOKEN and BUILDKITE_ORGANIZATION for Buildkite terraform provider

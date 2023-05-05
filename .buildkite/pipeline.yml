@@ -1,0 +1,11 @@
+steps:
+  - command: "echo 'I am building the xyz-cloud'"
+  - command: "echo 'Done!'"
+
+steps:
+  - label: ":docker: Build"
+    plugins:
+      - docker-compose#v4.12.0:
+          build: message-api
+          image-repository: index.docker.io/mvon38/xyz
+

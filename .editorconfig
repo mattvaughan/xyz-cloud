@@ -3,6 +3,6 @@ root = true
 [*]
 end_of_line = lf
 
-[*.{cs,sh}]
+[*.{cs,sh,yml,yaml}]
 indent_style = space
 indent_size = 2
