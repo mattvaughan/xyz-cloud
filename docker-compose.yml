@@ -6,4 +6,10 @@ services:
       dockerfile: docker/api.Dockerfile
     ports:
       - "5000:80"
-
+  karate:
+    network_mode: host
+    build:
+      context: ./karate
+      dockerfile: ./Dockerfile
+    command: [ "./message.feature" ]
+    #command: ["-h"]
