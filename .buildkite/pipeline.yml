@@ -3,9 +3,12 @@ steps:
   - command: "echo 'Done!'"
 
 steps:
-  - label: ":docker: Build"
+  - label: ":docker: Build and Push Image"
     plugins:
       - docker-compose#v4.12.0:
           build: message-api
           image-repository: index.docker.io/mvon38/xyz
+  - label: ":dotnet: Run Unit Tests"
+  - label: ":karate: Run Karate Api Tests"
+  - label: ":eks: :k8s: Deploy to Kubernetes"
 
