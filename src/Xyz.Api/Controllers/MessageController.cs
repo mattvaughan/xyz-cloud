@@ -12,13 +12,13 @@ public class MessageController : ControllerBase
   }
 
   [HttpGet(Name = "GetMessage")]
-  public IActionResult Get()
+  public MessageModel Get()
   {
     var message = new MessageModel
     {
       Message = "Automate all the things!",
       Timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
     };
-    return Ok(message);
+    return message;
   }
 }
