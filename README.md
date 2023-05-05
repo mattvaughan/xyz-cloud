@@ -9,6 +9,7 @@ XYZ Cloud Demo
 - Terraform
 - Kubectl
 - Tanka
+- Jsonnet Bundler
 - AWS Cli
 - AWS Credentials in Environment variables
 
@@ -33,4 +34,8 @@ aws eks --region $(terraform output -raw region) update-kubeconfig \
 - To start Buildkite agent locally
 ```
 docker run -e BUILDKITE_AGENT_TOKEN="<your-key>" buildkite/agent
+```
+- Set tk endpoint
+```
+tk env set environments/default --server=https://127.0.0.1:6443`
 ```

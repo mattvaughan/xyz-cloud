@@ -6,5 +6,9 @@ obj
 .terraform*
 terraform.tfstate
 
+# Tanka
+tanka/vendor
+
 # Secrets
 .cluster-info
+
