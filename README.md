@@ -20,6 +20,7 @@ XYZ Cloud Demo
 - Easy `docker-compose` compilation and run
 - Multi-stage docker build to remove build deps
 - Terraform creates pipeline as well
+- Dynamically generate karate buildkite step
 
 # Potential Improvements
 - Restore .NET deps in separate step

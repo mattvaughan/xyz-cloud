@@ -15,4 +15,3 @@ services:
     build:
       context: ./karate
       dockerfile: ./Dockerfile
-    command: [ "./message.feature" ]
