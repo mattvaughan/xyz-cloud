@@ -22,7 +22,7 @@
           spec: {
             containers: [
               {
-                image: 'mvon38/xyz:latest',
+                image: 'mvon38/xyz:' + std.extVar('tag'),
                 imagePullPolicy: 'Always',
                 name: 'xyz',
                 ports: [{

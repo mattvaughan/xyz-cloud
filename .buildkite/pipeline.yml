@@ -12,7 +12,7 @@ steps:
   - label: ":eks: :k8s: Deploy to Kubernetes"
     commands:
       - cd tanka
-      - tk apply --auto-approve always environments/default
+      - tk apply --auto-approve always --ext-str tag=$BUILDKITE_PIPELINE_NAME-message-api-build-$BUILDKITE_BUILD_NUMBER environments/default
       - sleep 5
       - buildkite-agent meta-data set "xyz_api_url" "$(kubectl get svc xyz -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
   - label: ":karate: Run Karate Api Tests"
