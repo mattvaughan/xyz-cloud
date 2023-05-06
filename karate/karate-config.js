@@ -9,7 +9,7 @@ function fn() {
   };
   if (env == 'buildkite') {
     // over-ride only those that need to be
-    config.baseUrl = java.lang.System.getenv('xyz_api_url');
+    config.baseUrl = 'https://' + java.lang.System.getenv('xyz_api_url');
   }
   // don't waste time waiting for a connection or if servers don't respond within 5 seconds
   karate.configure('connectTimeout', 5000);
