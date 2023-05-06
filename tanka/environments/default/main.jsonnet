@@ -20,10 +20,10 @@
             },
           },
           spec: {
-            imagePullPolicy: 'Always',
             containers: [
               {
                 image: 'mvon38/xyz:latest',
+                imagePullPolicy: 'Always',
                 name: 'xyz',
                 ports: [{
                     containerPort: 80,

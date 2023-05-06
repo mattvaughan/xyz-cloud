@@ -53,3 +53,4 @@ docker push mvon38/xyz:tagname
 - Process would change if I could split into multiple repos
 - Optmized for "one-click"
 - Just using latest for tags
+- Install github buildkite hooks
