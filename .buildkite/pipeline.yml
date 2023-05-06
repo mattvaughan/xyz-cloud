@@ -12,7 +12,8 @@ steps:
     commands:
       - cd tanka
       - tk apply --auto-approve always environments/default
-      - buildkite-agent meta-data set "xyz_api_url" "$(kubectl get svc xyz)"
+      - sleep 5
+      - buildkite-agent meta-data set "xyz_api_url" "asdfasdfasdfasdf"
   - label: ":karate: Run Karate Api Tests"
     plugins:
       - docker-compose#v4.12.0:
