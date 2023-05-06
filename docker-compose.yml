@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   message-api:
+    image: mvon38/xyz:latest
     build:
       context: .
       dockerfile: docker/api.Dockerfile

@@ -52,3 +52,4 @@ docker push mvon38/xyz:tagname
 - Set BUILDKITE_API_TOKEN and BUILDKITE_ORGANIZATION for Buildkite terraform provider
 - Process would change if I could split into multiple repos
 - Optmized for "one-click"
+- Just using latest for tags
