@@ -4,6 +4,7 @@ steps:
       - docker-compose#v4.12.0:
           build: message-api
           image-repository: index.docker.io/mvon38/xyz
+          image-name: latest
   - label: ":dotnet: Run Unit Tests"
     plugins:
       - docker-compose#v4.12.0:
