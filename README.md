@@ -54,3 +54,4 @@ docker push mvon38/xyz:tagname
 - Optmized for "one-click"
 - Just using latest for tags
 - Install github buildkite hooks
+- Check on karate false positives
