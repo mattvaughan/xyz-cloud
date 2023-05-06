@@ -15,6 +15,4 @@ steps:
   - label: ":eks: :k8s: Deploy to Kubernetes"
     commands:
       - cd tanka
-      # LOL
-      - sed -i "s/my-k8s-api/$(cat /kube-info/endpoint | sed "s/\//\\\//g")/g" ./environments/default/spec.json
       - tk apply --auto-approve always environments/default
