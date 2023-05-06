@@ -87,3 +87,25 @@ module "eks" {
     }
   ]
 }
+
+resource "local_file" "spec_json" {
+  content = <<-EOF
+    {
+      "apiVersion": "tanka.dev/v1alpha1",
+      "kind": "Environment",
+      "metadata": {
+        "name": "environments/default",
+        "namespace": "environments/default/main.jsonnet"
+      },
+      "spec": {
+        "apiServer": "${module.eks.cluster_endpoint}",
+        "namespace": "default",
+        "injectLabels": true,
+        "resourceDefaults": {},
+        "expectVersions": {}
+      }
+    }
+  EOF
+  filename = "../tanka/environments/default/spec.json"
+  file_permission = "0644"
+}

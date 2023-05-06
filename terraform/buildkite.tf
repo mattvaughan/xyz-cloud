@@ -47,6 +47,8 @@ resource "aws_instance" "buildkite" {
     sudo chmod +x ./kubectl
     sudo cp ./kubectl /usr/bin/kubectl
     sudo -u buildkite-agent aws eks --region ${var.region} update-kubeconfig --name ${module.eks.cluster_name}
+    sudo mkdir /kube-info && sudo echo "${module.eks.cluster_endpoint}" > /kube-info/endpoint
+    sudo chown -R buildkite-agent /kube-info
     sudo curl -Lo /usr/local/bin/tk https://github.com/grafana/tanka/releases/latest/download/tk-linux-amd64
     sudo chmod a+x /usr/local/bin/tk
     sudo curl -Lo /usr/local/bin/jb https://github.com/jsonnet-bundler/jsonnet-bundler/releases/latest/download/jb-linux-amd64

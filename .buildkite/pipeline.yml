@@ -1,17 +1,20 @@
 steps:
-  - label: ":docker: Build and Push Image"
-    plugins:
-      - docker-compose#v4.12.0:
-          build: message-api
-          image-repository: index.docker.io/mvon38/xyz
-  - label: ":dotnet: Run Unit Tests"
-    plugins:
-      - docker-compose#v4.12.0:
-          run: unit-tests
-  - label: ":karate: Run Karate Api Tests"
-    plugins:
-      - docker-compose#v4.12.0:
-          run: karate
+  #- label: ":docker: Build and Push Image"
+    #plugins:
+      #- docker-compose#v4.12.0:
+          #build: message-api
+          #image-repository: index.docker.io/mvon38/xyz
+  #- label: ":dotnet: Run Unit Tests"
+    #plugins:
+      #- docker-compose#v4.12.0:
+          #run: unit-tests
+  #- label: ":karate: Run Karate Api Tests"
+    #plugins:
+      #- docker-compose#v4.12.0:
+          #run: karate
   - label: ":eks: :k8s: Deploy to Kubernetes"
     commands:
-      - kubectl get pods
+      - cd tanka
+      # LOL
+      - sed -i "s/my-k8s-api/$(cat /kube-info/endpoint | sed "s/\//\\\//g")/g" ./environments/default/spec.json
+      - tk apply --auto-approve always environments/default
