@@ -54,7 +54,7 @@ git commit -am "Adding generate tanka config" && git push
 
 This does not add the web hook to the Github repo, so you'll need to do that manually. Alternatively, you can just click `New Build` to kickoff the deployment.
 
-You should be able to see the application runing in EKS now! Grab the URL of your application from the Buildkite pipeline annotation, and checkout the endpoints `/Message` and `/swagger`.
+You should be able to see the application runing in EKS now! Grab the URL of your application from the Buildkite pipeline annotation, and checkout the endpoint `/Message`
 
 # Other Notes
 - After terraform apply, configure `kubectl` to interact with EKS:

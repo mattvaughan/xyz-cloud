@@ -15,7 +15,6 @@ steps:
       - sleep 5
       - buildkite-agent meta-data set "xyz_api_url" "$(kubectl get svc xyz -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
       - buildkite-agent annotate "Application available at http://$(kubectl get svc xyz -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}')/Message"
-      - buildkite-agent annotate "Swagger available at http://$(kubectl get svc xyz -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}')/swagger"
   - label: ":karate: Run Karate Api Tests"
     plugins:
       - docker-compose#v4.12.0:
