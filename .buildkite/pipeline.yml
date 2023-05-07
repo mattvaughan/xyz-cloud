@@ -1,24 +1,31 @@
 steps:
   - label: ":docker: Build and Push Image"
+    key: build
     plugins:
       - docker-compose#v4.12.0:
           build: message-api
           image-repository: index.docker.io/mvon38/xyz
   - label: ":dotnet: Run Unit Tests"
+    key: unit
     plugins:
       - docker-compose#v4.12.0:
           run: unit-tests
   - label: ":eks: :k8s: Deploy to Kubernetes"
+    key: deploy
     commands:
       - cd tanka
       - tk apply --auto-approve always --ext-str tag=$$BUILDKITE_PIPELINE_NAME-message-api-build-$$BUILDKITE_BUILD_NUMBER environments/default
       - sleep 5
       - buildkite-agent meta-data set "xyz_api_url" "$(kubectl get svc xyz -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
       - buildkite-agent annotate "Application available at http://$(kubectl get svc xyz -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}')/Message"
+    depends_on:
+      - build
+      - unit
   - label: ":karate: Run Karate Api Tests"
     plugins:
       - docker-compose#v4.12.0:
           run: karate
           propagate-environment: true
           mount-buildkite-agent: true
-
+    depends_on:
+      - deploy
