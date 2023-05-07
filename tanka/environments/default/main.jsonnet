@@ -13,6 +13,14 @@
             name: 'xyz',
           },
         },
+        replicas: 2,
+        strategy: {
+          type: "RollingUpdate",
+          rollingUpdate: {
+            maxSurge: 1,
+            maxUnavailable: 0
+          }
+        },
         template: {
           metadata: {
             labels: {
