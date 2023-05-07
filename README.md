@@ -1,7 +1,28 @@
 # xyz-cloud
 XYZ Cloud Demo
 
-# Prerequisites (will automate some of this)
+## Prerequisites
+- You've signed up for a Buildkite account and set these env vars
+  - `BUILDKITE_API_TOKEN="<your-buildkite-api-token>"`
+  - `BUILDKITE_ORGANIZATION="<your-buildkite-org>"`
+  - `TF_VAR_buildkite_agent_token="<your-buildkite-agent-token>"`
+
+
+- You've signed up for an AWS account and set these env vars
+  - `AWS_ACCESS_KEY_ID="<your-key-id>"`
+  - `AWS_SECRET_ACCESS_KEY="<your-access-key>"`
+  - `AWS_REGION="us-east-2"`
+
+- You've signed up for Docker Hub and set these env vars
+  - `TF_VAR_dockerhub_user="<your-docker-hub-user>"`
+  - `TF_VAR_dockerhub_password="<your-docker-hub-password>"`
+
+
+
+
+## Dependencies
+These are the tools you'll need to interact with this project. If you'd like, you can install [Nix](https://nixos.org/download.html) on your system and run `nix-shell` in the root of the repo to get an environment with the tools installed, though you still may need to configure the docker daemon and groups if you don't have that on your system already.
+
 - Bash
 - Docker
 - Docker Compose
@@ -11,8 +32,6 @@ XYZ Cloud Demo
 - Tanka
 - Jsonnet Bundler
 - AWS Cli
-- AWS Credentials in Environment variables
-- Use Nix to wrap all this up?
 
 # Details
 - Pretty print json
