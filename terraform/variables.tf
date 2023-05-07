@@ -6,15 +6,15 @@ variable "region" {
 
 variable "buildkite_agent_token" {
   description = "Buildkite Token"
-  type = string
+  type        = string
 }
 
 variable "dockerhub_user" {
   description = "Docker Hub User"
-  type = string
+  type        = string
 }
 
 variable "dockerhub_password" {
   description = "Docker Hub Password"
-  type = string
+  type        = string
 }

@@ -1,7 +1,7 @@
 resource "buildkite_pipeline" "xyz_cloud" {
-    name = "xyz-api"
-    repository = "https://github.com/mattvaughan/xyz-cloud.git"
-    steps = file("../.buildkite/pipeline.yml")
+  name       = "xyz-api"
+  repository = "https://github.com/mattvaughan/xyz-cloud.git"
+  steps      = file("../.buildkite/pipeline.yml")
 }
 
 module "buildkite_vpc" {
@@ -25,9 +25,9 @@ resource "aws_instance" "buildkite" {
   count = 2
 
   # Ubuntu
-  ami           = "ami-0df58e89a1ffef81c"
-  instance_type = "t3.micro"
-  subnet_id     = element(module.buildkite_vpc.public_subnets, 1)
+  ami                  = "ami-0df58e89a1ffef81c"
+  instance_type        = "t3.micro"
+  subnet_id            = element(module.buildkite_vpc.public_subnets, 1)
   iam_instance_profile = aws_iam_instance_profile.buildkite_profile.name
 
   user_data = <<-EOF
@@ -71,7 +71,7 @@ resource "aws_iam_role" "buildkite_k8s_deployer" {
       {
         Action = "sts:AssumeRole"
         Effect = "Allow"
-        Sid = ""
+        Sid    = ""
         Principal = {
           Service = "ec2.amazonaws.com"
         }
@@ -81,8 +81,8 @@ resource "aws_iam_role" "buildkite_k8s_deployer" {
 }
 
 resource "aws_iam_policy" "k8s_deploy" {
-  name = "k8s_deploy"
-  path = "/"
+  name        = "k8s_deploy"
+  path        = "/"
   description = "To get kubeconfig"
 
   policy = jsonencode({
@@ -100,8 +100,8 @@ resource "aws_iam_policy" "k8s_deploy" {
 }
 
 resource "aws_iam_policy_attachment" "buildkite_attachment" {
-  name = "buildkite_attachment"
-  roles = [aws_iam_role.buildkite_k8s_deployer.name]
+  name       = "buildkite_attachment"
+  roles      = [aws_iam_role.buildkite_k8s_deployer.name]
   policy_arn = aws_iam_policy.k8s_deploy.arn
 }
 

@@ -89,7 +89,7 @@ module "eks" {
 }
 
 resource "local_file" "spec_json" {
-  content = <<-EOF
+  content         = <<-EOF
     {
       "apiVersion": "tanka.dev/v1alpha1",
       "kind": "Environment",
@@ -106,6 +106,6 @@ resource "local_file" "spec_json" {
       }
     }
   EOF
-  filename = "../tanka/environments/default/spec.json"
+  filename        = "../tanka/environments/default/spec.json"
   file_permission = "0644"
 }
