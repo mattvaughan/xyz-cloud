@@ -63,17 +63,6 @@ aws eks --region $(terraform output -raw region) update-kubeconfig \
     --name $(terraform output -raw cluster_name)
 ```
 
-# Details
-- Pretty print json
-- Swagger
-- Easy `docker-compose` compilation and run
-- Multi-stage docker build to remove build deps
-- Terraform creates pipeline as well
-- Dynamically generate karate buildkite step
-
-# Guides Used
-- https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
-
 # Notes
 - Remember to parmaterize terraform for things specific to me
 - Process would change if I could split into multiple repos

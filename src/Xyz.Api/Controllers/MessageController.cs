@@ -16,7 +16,7 @@ public class MessageController : ControllerBase
   {
     var message = new MessageModel
     {
-      Message = "Automate all the things!",
+      Message = "sdfasdfasdfasdfasdf",
       Timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
     };
     return message;

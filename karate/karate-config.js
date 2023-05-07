@@ -5,7 +5,7 @@ function fn() {
     env = 'local'; // a custom 'intelligent' default
   }
   var config = { // base config JSON
-    baseUrl: 'http://localhost:5067'
+    baseUrl: 'http://localhost:5000'
   };
   if (env == 'buildkite') {
     // over-ride only those that need to be
