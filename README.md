@@ -59,8 +59,7 @@ You should be able to see the application runing in EKS now! Grab the URL of you
 # Other Notes
 - After terraform apply, configure `kubectl` to interact with EKS:
 ```
-aws eks --region $(terraform output -raw region) update-kubeconfig \
-    --name $(terraform output -raw cluster_name)
+aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
 ```
 
 # Notes
