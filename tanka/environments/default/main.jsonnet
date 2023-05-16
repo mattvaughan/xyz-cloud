@@ -13,7 +13,7 @@
             name: 'xyz',
           },
         },
-        replicas: 2,
+        replicas: 3,
         strategy: {
           type: "RollingUpdate",
           rollingUpdate: {
