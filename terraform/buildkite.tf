@@ -22,7 +22,7 @@ module "buildkite_vpc" {
 }
 
 resource "aws_instance" "buildkite" {
-  count = 2
+  count = 3
 
   # Ubuntu
   ami                  = "ami-0df58e89a1ffef81c"
