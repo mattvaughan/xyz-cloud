@@ -6,7 +6,7 @@
     "namespace": "environments/default/main.jsonnet"
   },
   "spec": {
-    "apiServer": "https://53D24934C558C75F0165B940F6F5D977.gr7.us-east-2.eks.amazonaws.com",
+    "apiServer": "https://8E59AE87C4A477B4A686D016A1939EBB.gr7.us-east-2.eks.amazonaws.com",
     "namespace": "default",
     "injectLabels": true,
     "resourceDefaults": {},
