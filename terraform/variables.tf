@@ -7,6 +7,7 @@ variable "region" {
 variable "buildkite_agent_token" {
   description = "Buildkite Token"
   type        = string
+  sensitive   = true
 }
 
 variable "dockerhub_user" {
